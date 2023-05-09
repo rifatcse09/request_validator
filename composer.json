@@ -1,0 +1,33 @@
+{
+    "name": "rifat/request-validator",
+    "description": "PHP Laravel like standalone validation library",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "App\\RequestValidator\\": "src"
+        }
+    },
+    "authors": [
+        {
+            "name": "rifat",
+            "email": "rifatcse09@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^8.0"
+    },
+    "require-dev": {
+        "opsway/psr12-strict-coding-standard": "dev-master"
+    },
+    "scripts": {
+        "cs-check": "phpcs",
+        "cs-fix": "phpcbf"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
+}
