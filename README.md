@@ -8,20 +8,12 @@ Page Index:
 - [PHP Request Validator](#php-request-validator)
   - [Requirements](#requirements)
       - [Installation](#installation)
-  - [Quick Start](#quick-start)
   - [Quick start :rocket:](#quick-start-rocket)
   - [License](#license)
 
 Suggested Links:
-- [Installation](/docs/installation.md)
-- [Feature Guide](/docs/feature-guide.md)
 - Rules
     - [Existing Rules](/docs/rules.md)
-    - [Data Provider](/docs/rules-database.md)
-    - [Customization](/docs/rules-customization.md)
-    - [Formatting Message](/docs/formatting-message.md)
-- [Integrations](/docs/integrations.md)
-
 ----
 ## Requirements
 
@@ -35,7 +27,6 @@ Suggested Links:
 composer require "rifatcse09/request_validator"
 ```
 
-## Quick Start
 <a name="quick-start"></a>
 ## Quick start :rocket:
 ````php
