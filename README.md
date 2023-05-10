@@ -73,14 +73,28 @@ $validator->rules($rules);
 $validator->rule('name', 'required|min:3');
 
 // then validate
-$validation->validate();
+$validator->validate();
 
-if ($validation->fails()) {
+if ($validator->fails()) {
     // handling errors
-    $errors = $validation->errors();
+ 
+
+    // get first error message from all
     echo "<pre>";
-    print_r($errors->firstOfAll());
+    print_r($validator->errorFirst());
+
+    // get first error message of email errors
     echo "</pre>";
+    echo $validator->errorFirst('email');
+
+    foreach ($validator->errors() as $error) {
+        print_r($error);
+    }
+    // get error messages of specific attribute
+    foreach ($validator->error('email') as $error) {
+        echo $error . "\n";
+    }
+
     exit;
 } else {
     // validation passes

@@ -8,7 +8,7 @@ use App\RequestValidator\Validator;
 $validator = new Validator;
 $validator->request([
 //'name'=>'',
-'email'=>'test @gmal',
+'email'=>'',
 'type'=>'11', 
 'money' => '2111a', 
 'zip_code' => '12q456',
@@ -50,15 +50,34 @@ echo '<pre>';
 //echo $validator->errorFirst();
 //print_r($validator->errorFirst());
 
-foreach ($validator->errors() as $error) {
-print_r($error).'<br>';
+// foreach ($validator->errors() as $error) {
+// print_r($error).'<br>';
+// }
+if ($validator->fails()) {
+    // handling errors
+    $errors = $validator->errors();
+    echo "<pre>";
+   // print_r($validator->errorFirst());
+    echo "</pre>";
+   // echo $validator->errorFirst('email');
+    echo "</pre>";
+    foreach ($validator->errors() as $error) {
+        print_r($error);
+    }
+    foreach ($validator->error('email') as $error) {
+        echo $error . "\n";
+    }
+    exit;
+} else {
+    // validation passes
+    echo "Success!";
 }
 
 //echo $validator->passed();
-if ($validator->passed()) {
+//if ($validator->passed()) {
 // do something
 //echo 'sdfomne';
-}
+//}
 ///print_r($result);
 
     // 'messages' => [
