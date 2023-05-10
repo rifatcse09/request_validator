@@ -10,6 +10,9 @@
   - [Min](#min)
   - [Numeric](#numeric)
   - [Required](#required)
+  - [Required](#required-1)
+  - [Required](#required-2)
+  - [Required](#required-3)
 
 
 <a name="boolean"></a>
@@ -132,4 +135,50 @@ Checks for field is required and not empty
 'value' => 'yep' //true
 'value' => ' '   //false
 'value' => ''    //false
+```
+
+<a name="lowercase"></a>
+### Required
+Checks string lowercase
+```php
+'value' => 'lowercase'  // in rules
+
+'value' => 'yep'   //true
+'value' => '123'   //true
+'value' => '123r' //true
+'value' => '123R' //false
+'value' => 'Rifat' //false
+'value' => 'rIfat' //false
+
+```
+<a name="uppercase"></a>
+### Required
+Checks string uppercase
+```php
+'value' => 'uppercase'  // in rules
+
+'value' => 'RIFAT'   //true
+'value' => '123'   //true
+'value' => '123R' //false
+'value' => '123r' //false
+'value' => 'Rifat' //false
+'value' => 'rIfat' //false
+
+
+```
+<a name="accepted"></a>
+### Required
+Checks string accepted
+```php
+'value' => 'accepted'  // in rules
+
+'value' => 'yes'   //true
+'value' => '1'   //true
+'value' => 1    //true
+'value' => 'on' //true
+'value' => 'true' //true
+'value' => true  //true
+'value' => 'test'  //false
+'value' => '123'  //false
+
 ```

@@ -12,12 +12,12 @@ $validator->request([
 'type'=>'11', 
 'money' => '2111a', 
 'zip_code' => '12q456',
-'terms' => '1212', 
+'terms' => 'on', 
 'age' => '-12',
 'phone_number' => '01867s',
 'gender' => 'f',
-'username' => 'RR',
-'password' => 'qw',
+'username' => 'Rifat',
+'password' => '123',
 ]);
 
 $rules = [
