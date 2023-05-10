@@ -5,10 +5,11 @@ require_once(__DIR__ . "/vendor/autoload.php");
 
 use App\RequestValidator\Validator;
 
-$validator = new Validator();
+$validator = new Validator;
 $validator->request([
-'name'=>'',
-'email'=>'','type'=>'11', 
+//'name'=>'',
+'email'=>'test @gmal',
+'type'=>'11', 
 'money' => '2111a', 
 'zip_code' => '12q456',
 'terms' => '1212', 
@@ -21,7 +22,6 @@ $validator->request([
 
 $rules = [
 'name' => 'required|min:3',
-//'name' => ['required', 'min:3'],
 'email' => ['required', 'email'],
 'type' => ['required', 'boolean'],
 'money' => ['required', 'numeric'],
@@ -42,7 +42,7 @@ $rules = [
 //             'email' => ['required', 'email'],
 //         ];
 $validator->rules($rules);
-// $validator->rule('name', 'required|min:3');
+$validator->rule('name', 'required|min:3');
 $validator->validate();
 echo '<pre>';
 //print_r($validator->errors('email'));

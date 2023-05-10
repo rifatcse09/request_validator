@@ -6,6 +6,9 @@ Make your apps validation easily (inspired by Laravel Validation)
 
 Page Index:
 - [PHP Request Validator](#php-request-validator)
+  - [Requirements](#requirements)
+      - [Installation](#installation)
+  - [Quick Start](#quick-start)
   - [Quick start :rocket:](#quick-start-rocket)
   - [License](#license)
 
@@ -20,36 +23,79 @@ Suggested Links:
 - [Integrations](/docs/integrations.md)
 
 ----
+## Requirements
 
+* PHP 8.0 or higher
+* Composer for installation
+
+
+#### Installation
+
+```
+composer require "rifatcse09/request_validator"
+```
+
+## Quick Start
 <a name="quick-start"></a>
 ## Quick start :rocket:
-```php
+````php
 <?php
 
+require('vendor/autoload.php');
+
+use App\RequestValidator\Validator;
+
+$validator = new Validator;
+
+$validator->request([
+    'email'=>'test @gmal',
+    'type'=>'11', 
+    'money' => '2111a', 
+    'zip_code' => '12q456',
+    'terms' => '1212', 
+    'age' => '12',
+    'phone_number' => '01867s',
+    'gender' => 'f',
+    'username' => 'RR',
+    'password' => 'qw',
+]);
+
 $rules = [
-    # firstname must exists
-    # atleast 2 characters
-    'firstname' => 'required|min:2|max:18',
-    # can input as array 
-    'firstname' => ['required', 'min:2', 'max:18'],
-
-    # must be an email format
-    # must be unique under 'users' table
-    'email'               => 'email',
-
-    # must be numeric
-    'id'                  => 'numeric',
-    'age'                 => 'integer',
-    
+    'name' => 'required|min:3',
+    'email' => ['required', 'email'],
+    'type' => ['required', 'boolean'],
+    'money' => ['required', 'numeric'],
+    'zip_code' => ['required','digits:6'],
+    'terms' => 'accepted',
+    'age' => 'min:18|integer',
     'phone_number' => 'regex:/^[0-9\-]+$/',
-
     'gender' => 'required|in:male,female',
-
     'username' => 'required|lowercase',
-
-    'password' => 'required|uppercase'
-
+    'password' => 'required|uppercase',
 ];
+
+// Bulk way 
+$validator->rules($rules);
+
+// Singal way
+$validator->rule('name', 'required|min:3');
+
+// then validate
+$validation->validate();
+
+if ($validation->fails()) {
+    // handling errors
+    $errors = $validation->errors();
+    echo "<pre>";
+    print_r($errors->firstOfAll());
+    echo "</pre>";
+    exit;
+} else {
+    // validation passes
+    echo "Success!";
+}
+
+```
 
 
 <a name="testing"></a>
