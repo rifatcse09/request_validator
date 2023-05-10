@@ -5,6 +5,7 @@
   - [Digit](#digit)
   - [Integer](#integer)
   - [Email](#email-1)
+  - [In](#in)
   - [Max](#max)
   - [Min](#min)
   - [Numeric](#numeric)
@@ -59,7 +60,6 @@ Check for numbers without any decimal or fractional parts.
 'randNum' => 'text'   //false
 ```
 
-
 <a name="email"></a>
 ### Email
 Matches email address
@@ -68,7 +68,7 @@ Matches email address
 
 'email' => 'test@email.com'      //true
 'email' => 'test-failed @su.re'  //false
-
+```
 
 <a name="in"></a>
 ### In
@@ -79,7 +79,6 @@ Checks if value exists in array
 'shop' => 'Metro'     //true
 'shop' => 'McDonalds' //false
 ```
-
 
 <a name="max"></a>
 ### Max
@@ -134,4 +133,3 @@ Checks for field is required and not empty
 'value' => ' '   //false
 'value' => ''    //false
 ```
-``
