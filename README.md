@@ -9,6 +9,8 @@ Page Index:
   - [Requirements](#requirements)
       - [Installation](#installation)
   - [Quick start :rocket:](#quick-start-rocket)
+  - [Testing](#testing)
+- [run this command from project root](#run-this-command-from-project-root)
   - [License](#license)
 
 Suggested Links:
@@ -88,7 +90,6 @@ if ($validation->fails()) {
 
 ```
 
-
 <a name="testing"></a>
 ## Testing
 
@@ -97,15 +98,8 @@ The testing suite can be run on your own machine. The main dependency is [PHPUni
 ```sh
 # run this command from project root
 $ composer install --dev --prefer-source
-```
-
-Once the database is created, run the tests on a terminal:
-
-```sh
-vendor/bin/phpunit --configuration phpunit.xml --coverage-text
-```
-
-For additional information see [PHPUnit The Command-Line Test Runner](http://phpunit.de/manual/current/en/textui.html).
+$ vendor/bin/phpunit --configuration phpunit.xml --coverage-text
+```or additional information see [PHPUnit The Command-Line Test Runner](http://phpunit.de/manual/current/en/textui.html).
 
 <a name="license"></a>
 ## License
