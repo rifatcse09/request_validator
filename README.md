@@ -31,7 +31,7 @@ composer require "rifatcse09/request_validator"
 
 <a name="quick-start"></a>
 ## Quick start :rocket:
-````php
+```php
 <?php
 
 require('vendor/autoload.php');
