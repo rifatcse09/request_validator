@@ -2,6 +2,9 @@
 - [Rules list](#rules-list)
   - [Boolean](#boolean)
   - [Email](#email)
+  - [Digit](#digit)
+  - [Integer](#integer)
+  - [Email](#email-1)
   - [Max](#max)
   - [Min](#min)
   - [Numeric](#numeric)
@@ -17,6 +20,43 @@ Applies only true or false values
 'randNum' => 'true'  //true
 'randNum' => 'false' //true
 'randNum' => '123'   //false
+```
+
+<a name="email"></a>
+### Email
+Email format check
+```php
+'randNum' => 'email' // in rules
+
+'randNum' => 'rifatcse09@gmail.com'  //true
+'randNum' => 'rifatcse0 @gmail.com'  //false
+'randNum' => 'false' //false
+'randNum' => '123'   //false
+```
+
+<a name="digit"></a>
+### Digit
+Number in 0-9 and limit
+```php
+'randNum' => 'digit:6' // in rules
+
+'randNum' => '123456'  //true
+'randNum' => '12345'  //false
+'randNum' => '123.45' //false
+'randNum' => '123OMG'   //false
+```
+
+<a name="integer"></a>
+### Integer
+Check for numbers without any decimal or fractional parts.
+```php
+'age' => 'integer' // in rules
+
+'randNum' => '18'  //true
+'randNum' => '-18'  //true
+'randNum' => '18.6'  //false
+'randNum' => 'false' //false
+'randNum' => 'text'   //false
 ```
 
 

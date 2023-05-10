@@ -45,7 +45,7 @@ $validator->request([
     'money' => '2111a', 
     'zip_code' => '12q456',
     'terms' => '1212', 
-    'age' => '12',
+    'quantity' => '20.5',
     'phone_number' => '01867s',
     'gender' => 'f',
     'username' => 'RR',
@@ -59,7 +59,7 @@ $rules = [
     'money' => ['required', 'numeric'],
     'zip_code' => ['required','digits:6'],
     'terms' => 'accepted',
-    'age' => 'min:18|integer',
+    'quantity' => 'integer',
     'phone_number' => 'regex:/^[0-9\-]+$/',
     'gender' => 'required|in:male,female',
     'username' => 'required|lowercase',
@@ -78,7 +78,6 @@ $validator->validate();
 if ($validator->fails()) {
     // handling errors
  
-
     // get first error message from all
     echo "<pre>";
     print_r($validator->errorFirst());
