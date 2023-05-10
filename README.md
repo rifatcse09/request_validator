@@ -10,7 +10,6 @@ Page Index:
       - [Installation](#installation)
   - [Quick start :rocket:](#quick-start-rocket)
   - [Testing](#testing)
-- [run this command from project root](#run-this-command-from-project-root)
   - [License](#license)
 
 Suggested Links:
@@ -99,7 +98,8 @@ The testing suite can be run on your own machine. The main dependency is [PHPUni
 # run this command from project root
 $ composer install --dev --prefer-source
 $ vendor/bin/phpunit --configuration phpunit.xml --coverage-text
-```or additional information see [PHPUnit The Command-Line Test Runner](http://phpunit.de/manual/current/en/textui.html).
+```
+For additional information see [PHPUnit The Command-Line Test Runner](http://phpunit.de/manual/current/en/textui.html).
 
 <a name="license"></a>
 ## License
