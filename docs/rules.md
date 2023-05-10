@@ -13,6 +13,7 @@
   - [Lowercase](#lowercase)
   - [Uppercase](#uppercase)
   - [Accepted](#accepted)
+  - [Regex](#regex)
 
 
 <a name="boolean"></a>
@@ -183,10 +184,9 @@ Checks string accepted
 
 ```
 
-```
 <a name="regex"></a>
 ### Regex
-Checks string accepted
+Checks Regex
 ```php
 'value' => 'regex:/^[0-9\-]+$/'  // in rules
 
