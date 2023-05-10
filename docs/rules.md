@@ -10,9 +10,9 @@
   - [Min](#min)
   - [Numeric](#numeric)
   - [Required](#required)
-  - [Required](#required-1)
-  - [Required](#required-2)
-  - [Required](#required-3)
+  - [Lowercase](#lowercase)
+  - [Uppercase](#uppercase)
+  - [Accepted](#accepted)
 
 
 <a name="boolean"></a>
@@ -138,7 +138,7 @@ Checks for field is required and not empty
 ```
 
 <a name="lowercase"></a>
-### Required
+### Lowercase
 Checks string lowercase
 ```php
 'value' => 'lowercase'  // in rules
@@ -152,7 +152,7 @@ Checks string lowercase
 
 ```
 <a name="uppercase"></a>
-### Required
+### Uppercase
 Checks string uppercase
 ```php
 'value' => 'uppercase'  // in rules
@@ -167,7 +167,7 @@ Checks string uppercase
 
 ```
 <a name="accepted"></a>
-### Required
+### Accepted
 Checks string accepted
 ```php
 'value' => 'accepted'  // in rules
@@ -180,5 +180,24 @@ Checks string accepted
 'value' => true  //true
 'value' => 'test'  //false
 'value' => '123'  //false
+
+```
+
+```
+<a name="regex"></a>
+### Regex
+Checks string accepted
+```php
+'value' => 'regex:/^[0-9\-]+$/'  // in rules
+
+'value' => '123'   //true
+'value' => '0-9'   //true
+'value' => '42-567'    //true
+'value' => '-789' //true
+'value' => 'abc' //false
+'value' => '-456-'  //false
+'value' => '123-'  //false
+'value' => '12a34'  //false
+'value' => '+8801867254624'  //false
 
 ```

@@ -14,7 +14,7 @@ $validator->request([
 'zip_code' => '12q456',
 'terms' => 'on', 
 'age' => '-12',
-'phone_number' => '01867s',
+'phone_number' => '+8801867254624',
 'gender' => 'f',
 'username' => 'Rifat',
 'password' => '123',
