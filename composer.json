@@ -25,8 +25,8 @@
     },
     "require-dev": {
         "opsway/psr12-strict-coding-standard": "dev-master",
-        "phpunit/phpunit": "^10.2@dev",
-        "php-coveralls/php-coveralls": "dev-master"
+        "php-coveralls/php-coveralls": "dev-master",
+        "phpunit/phpunit": "^9.5"
     },
     "scripts": {
         "cs-check": "phpcs",
