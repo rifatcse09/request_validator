@@ -1,1 +1,1 @@
-{"version":1,"defects":[],"times":{"App\\RequestValidator\\Tests\\ValidatorTest::testPasses":0.004,"App\\RequestValidator\\Tests\\ValidatorTest::testFail":0}}
+{"version":1,"defects":[],"times":{"App\\RequestValidator\\Tests\\ValidatorTest::testPasses":0.003,"App\\RequestValidator\\Tests\\ValidatorTest::testFail":0}}
