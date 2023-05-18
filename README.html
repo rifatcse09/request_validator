@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>PHP Request Validator</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="php-request-validator">PHP Request Validator</h1>
+<p>Make your apps validation easily (inspired by Laravel Validation)</p>
+<hr>
+<p>Page Index:</p>
+<ul>
+<li><a href="#php-request-validator">PHP Request Validator</a>
+<ul>
+<li><a href="#requirements">Requirements</a>
+<ul>
+<li><a href="#installation">Installation</a></li>
+</ul>
+</li>
+<li><a href="#quick-start-rocket">Quick start :rocket:</a></li>
+<li><a href="#testing">Testing</a></li>
+<li><a href="#license">License</a></li>
+</ul>
+</li>
+</ul>
+<p>Suggested Links:</p>
+<ul>
+<li>Rules
+<ul>
+<li><a href="/docs/rules.html">Existing Rules</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li>PHP 8.0 or higher</li>
+<li>Composer for installation</li>
+</ul>
+<h4 id="installation">Installation</h4>
+<pre><code>composer require &quot;rifatcse09/request_validator&quot;
+</code></pre>
+<p><a name="quick-start"></a></p>
+<h2 id="quick-start-rocket">Quick start :rocket:</h2>
+<pre><code class="language-php"><span class="hljs-meta">&lt;?php</span>
+
+<span class="hljs-keyword">require</span>(<span class="hljs-string">&#x27;vendor/autoload.php&#x27;</span>);
+
+<span class="hljs-keyword">use</span> <span class="hljs-title">App</span>\<span class="hljs-title">RequestValidator</span>\<span class="hljs-title">Validator</span>;
+
+<span class="hljs-variable">$validator</span> = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Validator</span>;
+
+<span class="hljs-variable">$validator</span>-&gt;<span class="hljs-title function_ invoke__">request</span>([
+    <span class="hljs-string">&#x27;email&#x27;</span>=&gt;<span class="hljs-string">&#x27;test @gmal&#x27;</span>,
+    <span class="hljs-string">&#x27;type&#x27;</span>=&gt;<span class="hljs-string">&#x27;11&#x27;</span>, 
+    <span class="hljs-string">&#x27;money&#x27;</span> =&gt; <span class="hljs-string">&#x27;2111a&#x27;</span>, 
+    <span class="hljs-string">&#x27;zip_code&#x27;</span> =&gt; <span class="hljs-string">&#x27;12q456&#x27;</span>,
+    <span class="hljs-string">&#x27;terms&#x27;</span> =&gt; <span class="hljs-string">&#x27;1212&#x27;</span>, 
+    <span class="hljs-string">&#x27;quantity&#x27;</span> =&gt; <span class="hljs-string">&#x27;20.5&#x27;</span>,
+    <span class="hljs-string">&#x27;phone_number&#x27;</span> =&gt; <span class="hljs-string">&#x27;01867s&#x27;</span>,
+    <span class="hljs-string">&#x27;gender&#x27;</span> =&gt; <span class="hljs-string">&#x27;f&#x27;</span>,
+    <span class="hljs-string">&#x27;username&#x27;</span> =&gt; <span class="hljs-string">&#x27;RR&#x27;</span>,
+    <span class="hljs-string">&#x27;password&#x27;</span> =&gt; <span class="hljs-string">&#x27;qww&#x27;</span>,
+]);
+
+<span class="hljs-variable">$rules</span> = [
+    <span class="hljs-string">&#x27;name&#x27;</span> =&gt; <span class="hljs-string">&#x27;required|min:3&#x27;</span>,
+    <span class="hljs-string">&#x27;email&#x27;</span> =&gt; [<span class="hljs-string">&#x27;required&#x27;</span>, <span class="hljs-string">&#x27;email&#x27;</span>],
+    <span class="hljs-string">&#x27;type&#x27;</span> =&gt; [<span class="hljs-string">&#x27;required&#x27;</span>, <span class="hljs-string">&#x27;boolean&#x27;</span>],
+    <span class="hljs-string">&#x27;money&#x27;</span> =&gt; [<span class="hljs-string">&#x27;required&#x27;</span>, <span class="hljs-string">&#x27;numeric&#x27;</span>],
+    <span class="hljs-string">&#x27;zip_code&#x27;</span> =&gt; [<span class="hljs-string">&#x27;required&#x27;</span>,<span class="hljs-string">&#x27;digits:6&#x27;</span>],
+    <span class="hljs-string">&#x27;terms&#x27;</span> =&gt; <span class="hljs-string">&#x27;accepted&#x27;</span>,
+    <span class="hljs-string">&#x27;quantity&#x27;</span> =&gt; <span class="hljs-string">&#x27;integer&#x27;</span>,
+    <span class="hljs-string">&#x27;phone_number&#x27;</span> =&gt; <span class="hljs-string">&#x27;regex:/^[0-9\-]+$/&#x27;</span>,
+    <span class="hljs-string">&#x27;gender&#x27;</span> =&gt; <span class="hljs-string">&#x27;required|in:male,female&#x27;</span>,
+    <span class="hljs-string">&#x27;username&#x27;</span> =&gt; <span class="hljs-string">&#x27;required|lowercase&#x27;</span>,
+    <span class="hljs-string">&#x27;password&#x27;</span> =&gt; <span class="hljs-string">&#x27;required|uppercase&#x27;</span>,
+];
+
+<span class="hljs-comment">// Bulk way </span>
+<span class="hljs-variable">$validator</span>-&gt;<span class="hljs-title function_ invoke__">rules</span>(<span class="hljs-variable">$rules</span>);
+
+<span class="hljs-comment">// Singal way</span>
+<span class="hljs-variable">$validator</span>-&gt;<span class="hljs-title function_ invoke__">rule</span>(<span class="hljs-string">&#x27;name&#x27;</span>, <span class="hljs-string">&#x27;required|min:3&#x27;</span>);
+
+<span class="hljs-comment">// then validate</span>
+<span class="hljs-variable">$validator</span>-&gt;<span class="hljs-title function_ invoke__">validate</span>();
+
+<span class="hljs-keyword">if</span> (<span class="hljs-variable">$validator</span>-&gt;<span class="hljs-title function_ invoke__">fails</span>()) {
+    <span class="hljs-comment">// handling errors</span>
+ 
+    <span class="hljs-comment">// get first error message from all</span>
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;&lt;pre&gt;&quot;</span>;
+    <span class="hljs-title function_ invoke__">print_r</span>(<span class="hljs-variable">$validator</span>-&gt;<span class="hljs-title function_ invoke__">errorFirst</span>());
+
+    <span class="hljs-comment">// get first error message of email errors</span>
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;&lt;/pre&gt;&quot;</span>;
+    <span class="hljs-keyword">echo</span> <span class="hljs-variable">$validator</span>-&gt;<span class="hljs-title function_ invoke__">errorFirst</span>(<span class="hljs-string">&#x27;email&#x27;</span>);
+
+    <span class="hljs-keyword">foreach</span> (<span class="hljs-variable">$validator</span>-&gt;<span class="hljs-title function_ invoke__">errors</span>() <span class="hljs-keyword">as</span> <span class="hljs-variable">$error</span>) {
+        <span class="hljs-title function_ invoke__">print_r</span>(<span class="hljs-variable">$error</span>);
+    }
+    <span class="hljs-comment">// get error messages of specific attribute</span>
+    <span class="hljs-keyword">foreach</span> (<span class="hljs-variable">$validator</span>-&gt;<span class="hljs-title function_ invoke__">error</span>(<span class="hljs-string">&#x27;email&#x27;</span>) <span class="hljs-keyword">as</span> <span class="hljs-variable">$error</span>) {
+        <span class="hljs-keyword">echo</span> <span class="hljs-variable">$error</span> . <span class="hljs-string">&quot;\n&quot;</span>;
+    }
+
+    <span class="hljs-keyword">exit</span>;
+} <span class="hljs-keyword">else</span> {
+    <span class="hljs-comment">// validation passes</span>
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;Success!&quot;</span>;
+}
+
+</code></pre>
+<p><a name="testing"></a></p>
+<h2 id="testing">Testing</h2>
+<p>The testing suite can be run on your own machine. The main dependency is <a href="https://github.com/sebastianbergmann/phpunit">PHPUnit</a> which can be installed using <a href="http://getcomposer.org">Composer</a>:</p>
+<pre><code class="language-sh"><span class="hljs-comment"># run this command from project root</span>
+$ composer install --dev --prefer-source
+$ vendor/bin/phpunit --configuration phpunit.xml --coverage-text
+</code></pre>
+<p>For additional information see <a href="http://phpunit.de/manual/current/en/textui.html">PHPUnit The Command-Line Test Runner</a>.</p>
+<p><a name="license"></a></p>
+<h2 id="license">License</h2>
+<p>PHP Request Validator is open-sourced software licensed under the <a href="LICENSE">MIT</a>.</p>
+
+        <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+        
+    </body>
+    </html>

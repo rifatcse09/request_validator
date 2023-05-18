@@ -49,7 +49,7 @@ $validator->request([
     'phone_number' => '01867s',
     'gender' => 'f',
     'username' => 'RR',
-    'password' => 'qw',
+    'password' => 'qww',
 ]);
 
 $rules = [
